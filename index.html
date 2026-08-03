@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Matrix Visualizer</title>
+<link rel="icon" href="data:," />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="matrix"></canvas>
+
+  <button id="panelToggle" aria-label="Toggle controls" aria-expanded="false">☰</button>
+
+  <aside id="panel" aria-hidden="true">
+    <h1>Matrix Visualizer</h1>
+
+    <label class="field">
+      <span>Character set</span>
+      <select id="charset">
+        <option value="katakana" selected>Katakana + digits</option>
+        <option value="binary">Binary (0/1)</option>
+        <option value="latin">Latin letters</option>
+        <option value="hex">Hexadecimal</option>
+        <option value="custom">Custom…</option>
+      </select>
+    </label>
+
+    <label class="field" id="customField" hidden>
+      <span>Custom characters</span>
+      <input id="customChars" type="text" maxlength="64" placeholder="e.g. αβγδ01" />
+    </label>
+
+    <label class="field">
+      <span>Theme</span>
+      <select id="theme">
+        <option value="green" selected>Classic green</option>
+        <option value="amber">Amber</option>
+        <option value="cyan">Cyan</option>
+        <option value="red">Red pill</option>
+        <option value="white">Ghost white</option>
+        <option value="rainbow">Rainbow</option>
+      </select>
+    </label>
+
+    <label class="field">
+      <span>Speed <output id="speedOut">1.0×</output></span>
+      <input id="speed" type="range" min="0.2" max="3" step="0.1" value="1" />
+    </label>
+
+    <label class="field">
+      <span>Density <output id="densityOut">1.0×</output></span>
+      <input id="density" type="range" min="0.3" max="2" step="0.1" value="1" />
+    </label>
+
+    <label class="field">
+      <span>Font size <output id="fontSizeOut">16px</output></span>
+      <input id="fontSize" type="range" min="10" max="32" step="1" value="16" />
+    </label>
+
+    <label class="field">
+      <span>Trail length <output id="trailOut">0.05</output></span>
+      <input id="trail" type="range" min="0.02" max="0.4" step="0.01" value="0.05" />
+    </label>
+
+    <label class="field checkbox">
+      <input id="glow" type="checkbox" checked />
+      <span>Glow</span>
+    </label>
+
+    <label class="field checkbox">
+      <input id="glitch" type="checkbox" />
+      <span>Glitch flicker</span>
+    </label>
+
+    <label class="field checkbox">
+      <input id="mouse" type="checkbox" checked />
+      <span>React to cursor</span>
+    </label>
+
+    <div class="row">
+      <button id="pauseBtn">Pause</button>
+      <button id="resetBtn">Reset</button>
+    </div>
+
+    <p class="hint">Press <kbd>Space</kbd> to pause · <kbd>H</kbd> to hide panel</p>
+  </aside>
+
+  <div id="fps" aria-hidden="true"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
