@@ -55,3 +55,11 @@ An in-app help overlay (toggle with `H`) shows live settings:
 | `M` | toggle mouse reactivity |
 | `R` | reset drops |
 | `Q` / `Esc` | quit |
+
+### Tests
+
+Headless regression tests run under SDL's dummy video driver (no display needed):
+
+```bash
+python3 -m unittest test_matrix_pygame.py -v
+```
